@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<?php
+include "../koneksi.php";
+include 'head.php';
+?>
+<body class="archive page-template-default page page-id-307 list-dwqa-question">
+  <div id="page" class="hfeed site">
+    <?php
+include 'data-admin/php/navigasi.php';
+?>
+    <main id="site-main" class="site-main">
+      <div class="container">
+        <section id="content" class="site-content">
+          <div id="primary">
+            <div id="primary-inner">
+              <div id="main-content">
+                <article id="post-250" class="post-250 page type-page status-publish hentry">
+                  <header class="page-header">
+                    <h1 class="page-title">Create a post
+                    </h1>
+                  </header>
+                  <div class="page-content">
+                    <div class="dwqa-container" >
+                      <form method="post" class="dwqa-content-ask-form" enctype="multipart/form-data">
+                        <p>
+                          <label for="question_title">
+                            <font color="blue">Title *
+                            </font>
+                          </label>
+                          <input type="text" class="form-control" name="title" value="" tabindex="1">
+                        </p>
+						<p>
+                      <div class="row gallery-page">
+                        <div class="col-sm-12">
+                          <label for="author">
+                            <font color="blue">Date release *
+                            </font>
+                          </label>
+                        </div>
+                        <div class="col-md-5 col-xs-6">
+                          <input type="date" class="form-control" name="date_release" value="" tabindex="1">
+						  </div>
+						</div>
+                        </p>
+                        <p>
+                          <label for="question_title">
+                            <font color="blue">Description *
+                            </font>
+                          </label>
+                        <div id="wp-question-content-wrap" class="wp-core-ui wp-editor-wrap html-active">
+                          <link rel='stylesheet' id='dashicons-css' href='wp-includes/css/dashicons.min4f4a.css?ver=4.7.11' type='text/css' media='all' />
+                          <link rel='stylesheet' id='editor-buttons-css' href='wp-includes/css/editor.min4f4a.css?ver=4.7.11' type='text/css' media='all' />
+                          <div id="wp-question-content-editor-container" class="wp-editor-container">
+                            <div id="qt_question-content_toolbar" class="quicktags-toolbar">
+                            </div>
+                            <textarea class="wp-editor-area" rows="5" cols="40" name="description" id="question-content">
+                            </textarea>
+                          </div>
+                        </div>
+                        </p>
+						  <p>
+						  <div class="row gallery-page">
+							<div class="col-sm-12">
+							  <label for="author">
+								<font color="blue">Category & Type games *
+								</font>
+							  </label>
+							</div>
+							<div class="col-md-4 col-xs-8">
+							Category
+						<select name='category' class='form-control col-sm-12' >
+							<?php
+								$qry = mysqli_query($conn, "select kategori, kategori from kategori");
+								while ($row = mysqli_fetch_row($qry))
+								{
+									echo "<option class='level-0' value=$row[0]>$row[1]";
+								}
+							?>    
+						</select>
+							</div>
+							<div class="col-md-4 col-xs-8">
+							Type Games
+						<select name='type_games' class='form-control col-sm-12' >
+							<option class='level-0' value='Pc'>PC</option>
+							<option class='level-0' value='Ppsspp'>Ppsspp</option>
+							<option class='level-0' value='Epsxe'>Epsxe</option>
+							<option class='level-0' value='Ps2'>Ps2</option>
+							<option class='level-0' value='Nintendo'>Nintendo</option>
+						</select>
+							</div>
+							<div class="col-md-4 col-xs-8">
+							Domain games
+						<select name='domain_games' class='form-control col-sm-12' >
+							<option class='level-0' value='.Exe'>.Exe (PC)</option>
+							<option class='level-0' value='.Iso/Cso'>.Iso/Cso (Ppsspp, Epsxe, Ps2, Nintendo)</option>
+						</select>
+							</div>
+						</div>
+						  </p>
+                      <p>
+                      <div class="row gallery-page">
+                        <div class="col-sm-12">
+                          <label for="author">
+                            <font color="blue">Requiment *
+                            </font>
+                          </label>
+                        </div>
+                        <div class="col-md-4 col-xs-6">
+                          Ram 
+                          <input class="form-control" type="text" name="ram" placeholder="Byte">
+                        </div>
+                        <div class="col-md-4 col-xs-6">
+                          Processor 
+                          <input class="form-control" type="text" name="processor" placeholder="Ghz">
+                        </div>
+                        <div class="col-md-4 col-xs-6">
+                          Memory 
+                          <input class="form-control" type="text" name="memory" placeholder="Byte">
+                        </div>
+                      </div>
+                      </p>
+                    <p>
+                    <div class="row gallery-page">
+                      <div class="col-sm-12">
+                        <label for="author">
+                          <font color="blue">Upload Images *
+                          </font>
+                        </label>
+                      </div>
+                      <div class="col-md-4 col-xs-6">
+                        (*max 4 upload*)
+                        <input class="form-control" type="file" name="image[]" multiple>
+                      </div>
+                    </div>
+                    </p>
+                  <p>
+                    <label for="_dwqa_anonymous_email">
+                      <font color="blue">Single Link *
+                      </font>
+                    </label>
+                    <input type="url" class="form-control" name="link" placeholder="Https:\\">
+                  </p>
+                  <p>
+                  <div class="row gallery-page">
+                    <div class="col-sm-12">
+                      <label for="author">
+                        <font color="blue">Part Link *
+                        </font>
+                      </label>
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                      Part 1 
+                      <input class="form-control" type="url" name="link1" placeholder="Https:\\">
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                      Part 2 
+                      <input class="form-control" type="url" name="link2" placeholder="Https:\\">
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                      Part 3 
+                      <input class="form-control" type="url" name="link3" placeholder="Https:\\">
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                      Part 4 
+                      <input class="form-control" type="url" name="link4" placeholder="Https:\\">
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                      Part 5 
+                      <input class="form-control" type="url" name="link5" placeholder="Https:\\">
+                    </div>
+                    <input type="hidden" name="active" value="current-menu-item">
+					<input type="hidden" name="null" value="0">
+                  </div>
+                  </p>
+                <br>
+                <button class="btn btn-success btn-sm" type="submit" name="publish" value="publish">Publish
+                </button>
+                <button class="btn btn-warning btn-sm" type="submit" name="draf" value="draft">Draft
+                </button>
+                </form>
+              <?php
+					if(isset($_POST['publish'])){
+					$title = $_POST['title'];
+					$date_release = $_POST['date_release'];
+					$date_post = date("d-m-Y");
+					$description = $_POST['description'];
+					$type_games = $_POST['type_games'];
+					$domain_games = $_POST['domain_games'];
+					$category = $_POST['category'];
+					$ram = $_POST['ram'];
+					$processor = $_POST['processor'];
+					$memory = $_POST['memory'];
+					$link = $_POST['link'];
+					$link1 = $_POST['link1'];
+					$link2 = $_POST['link2'];
+					$link3 = $_POST['link3'];
+					$link4 = $_POST['link4'];
+					$link5 = $_POST['link5'];
+					
+					$publish = $_POST['publish'];
+					$active = $_POST['active'];
+					$rating = $_POST['null'];
+					
+					$jumlah = count($_FILES['image']['name']);
+					if ($jumlah > 0){
+							$image = array ();
+							for ($i=0; $i < $jumlah; $i++){
+								$file_name = $_FILES['image']['name'][$i];
+								$tmp_name = $_FILES['image']['tmp_name'][$i];
+								move_uploaded_file($tmp_name, "../data-web/images/".$file_name);
+								$image[$i] = $file_name;
+								}
+					
+					$sql_data = "insert into games (judul, tgl_post, tgl_release, keterangan, type, domain_game, kategori, ram, processor, memory, 
+								 gambar, gambar1, gambar2, gambar3, link, link1, link2, link3, link4, link5, keadaan, page, rating) values
+								('$title','$date_post','$date_release','$description','$type_games','$domain_games','$category','$ram','$processor','$memory',
+								'$image[0]','$image[1]','$image[2]','$image[3]','$link','$link1','$link2','$link3','$link4','$link5','$publish', '$active','$rating')";
+						if(mysqli_query($conn,$sql_data))
+					{
+						echo "<script>alert('Data di simpan');document.location='edit-post.php'</script>";
+					} else{
+						echo "<script>alert('Error');document.location='buat-posting.php'</script>";
+					}
+					
+					}
+						mysqli_close($conn);
+					
+				}else if(isset($_POST['draf'])){
+					$title = $_POST['title'];
+					$date_release = $_POST['date_release'];
+					$date_post = date("d-m-Y");
+					$description = $_POST['description'];
+					$type_games = $_POST['type_games'];
+					$domain_games = $_POST['domain_games'];
+					$category = $_POST['category'];
+					$ram = $_POST['ram'];
+					$processor = $_POST['processor'];
+					$memory = $_POST['memory'];
+					$link = $_POST['link'];
+					$link1 = $_POST['link1'];
+					$link2 = $_POST['link2'];
+					$link3 = $_POST['link3'];
+					$link4 = $_POST['link4'];
+					$link5 = $_POST['link5'];
+					
+					$draf = $_POST['draf'];
+					$active = $_POST['active'];
+					$rating = $_POST['null'];
+					
+					$jumlah = count($_FILES['image']['name']);
+					if ($jumlah > 0){
+							$image = array ();
+							for ($i=0; $i < $jumlah; $i++){
+								$file_name = $_FILES['image']['name'][$i];
+								$tmp_name = $_FILES['image']['tmp_name'][$i];
+								move_uploaded_file($tmp_name, "../data-web/images/".$file_name);
+								$image[$i] = $file_name;
+								}
+					
+					$sql_data = "insert into games (judul, tgl_release, tgl_post, keterangan, type, domain_game, kategori, ram, processor, memory,
+						gambar, gambar1, gambar2, gambar3, link, link1, link2, link3, link4, link5, keadaan, page, rating) values
+						('$title','$date_release','$date_post','$description','$type_games','$domain_games','$category','$ram','$processor','$memory',
+						'$image[0]','$image[1]','$image[2]','$image[3]','$link','$link1','$link2','$link3','$link4','$link5', '$draf', '$active','$rating')";
+						if(mysqli_query($conn,$sql_data))
+						{
+							echo "<script>alert('Data di simpan');document.location='draft.php'</script>";
+						}else{
+							echo "<script>alert('Error');document.location='buat-posting.php'</script>";
+						}
+							mysqli_close($conn);
+						}
+				}
+					?>
+            </div>
+          </div>
+          </article>
+      </div>
+      </div>
+  </div>
+  <div id="secondary" class="widget-area" role="complementary">
+    <div class="secondary-inner">
+      <aside id="dw_accordions-2" class="widget dw_accordion news-accordion">
+        <div class="accordion" id="accordion-dw_accordions-2">
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion-dw_accordions-2" href="#dw_accordions-2-meta-dw-widget-1">VISITORS
+              </a>
+            </div>
+            <div id="dw_accordions-2-meta-dw-widget-1" class="widget_meta-dw-widget-1  accordion-body collapse widget_meta">
+              <div class="accordion-inner">
+                <h3 class="widget-title">VISITORS
+                </h3>
+                <ul>
+                  <li>
+                    <a href="visitors.php">A total of visitors
+                    </a>
+                  </li>
+                  <li>
+                    <a href="graph-visitor.php">The Graph visitor
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle active" data-toggle="collapse" data-parent="#accordion-dw_accordions-2" href="#dw_accordions-2-meta-dw-widget-4">POSTING
+              </a>
+            </div>
+            <div id="dw_accordions-2-meta-dw-widget-4" class="widget_meta-dw-widget-4  accordion-body collapse in widget_meta">
+              <div class="accordion-inner">
+                <h3 class="widget-title">POSTING
+                </h3>
+                <ul>
+                  <li>
+                    <a href="buat-posting.php">Creat a post
+                    </a>
+                  </li>
+                  <li>
+                    <a href="draft.php">Draft
+                    </a>
+                  </li>
+                  <li>
+                    <a href="kategori.php">Creat a category
+                    </a>
+                  </li>
+                  <li>
+                    <a href="list-images.php">List Images
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion-dw_accordions-2" href="#dw_accordions-2-meta-dw-widget-2">EDITING
+              </a>
+            </div>
+            <div id="dw_accordions-2-meta-dw-widget-2" class="widget_meta-dw-widget-2  accordion-body collapse widget_meta">
+              <div class="accordion-inner">
+                <h3 class="widget-title">EDITING
+                </h3>
+                <ul>
+                  <li>
+                    <a href="edit-post.php">Edit post
+                    </a>
+                  </li>
+                  <li>
+                    <a href="edit-header.php">Edit Header
+                    </a>
+                  </li>
+                  <li>
+                    <a href="edit-footer.php">Edit Footer
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion-dw_accordions-2" href="#dw_accordions-2-meta-dw-widget-3">SOCIAL
+              </a>
+            </div>
+            <div id="dw_accordions-2-meta-dw-widget-3" class="widget_meta-dw-widget-3  accordion-body collapse widget_meta">
+              <div class="accordion-inner">
+                <h3 class="widget-title">USER/SOCIAL
+                </h3>
+                <ul>
+                  <li>
+                    <a href="wp-login.html">List User
+                    </a>
+                  </li>
+                  <li>
+                    <a href="indexd784.html?feed=rss2">Comments
+                    </a>
+                  </li>
+                  <li>
+                    <a href="indexd784.html?feed=rss2">Messages
+                    </a>
+                  </li>
+                  <li>
+                    <a href="indexd784.html?feed=rss2">A total of visitor
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle active" data-toggle="collapse" data-parent="#accordion-dw_accordions-2" href="#dw_accordions-2-calendar-dw-widget-1">Calendar
+              </a>
+            </div>
+            <div id="dw_accordions-2-calendar-dw-widget-1" class="widget_calendar-dw-widget-1  accordion-body collapse in widget_calendar">
+              <div class="accordion-inner">
+                <h3 class="widget-title">Calendar
+                </h3>
+                <div id="calendar_wrap" class="calendar_wrap">
+                  <table id="wp-calendar">
+                    <caption>July 2018
+                    </caption>
+                    <thead>
+                      <tr>
+                        <th scope="col" title="Monday">M
+                        </th>
+                        <th scope="col" title="Tuesday">T
+                        </th>
+                        <th scope="col" title="Wednesday">W
+                        </th>
+                        <th scope="col" title="Thursday">T
+                        </th>
+                        <th scope="col" title="Friday">F
+                        </th>
+                        <th scope="col" title="Saturday">S
+                        </th>
+                        <th scope="col" title="Sunday">S
+                        </th>
+                      </tr>
+                    </thead>
+                    <tfoot>
+                      <tr>
+                        <td colspan="3" id="prev">
+                          <a href="index3642.html?m=201212">&laquo; Dec
+                          </a>
+                        </td>
+                        <td class="pad">&nbsp;
+                        </td>
+                        <td colspan="3" id="next" class="pad">&nbsp;
+                        </td>
+                      </tr>
+                    </tfoot>
+                    <tbody>
+                      <tr>
+                        <td colspan="6" class="pad">&nbsp;
+                        </td>
+                        <td>1
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>2
+                        </td>
+                        <td>3
+                        </td>
+                        <td>4
+                        </td>
+                        <td>5
+                        </td>
+                        <td>6
+                        </td>
+                        <td>7
+                        </td>
+                        <td>8
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>9
+                        </td>
+                        <td>10
+                        </td>
+                        <td>11
+                        </td>
+                        <td>12
+                        </td>
+                        <td id="today">13
+                        </td>
+                        <td>14
+                        </td>
+                        <td>15
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>16
+                        </td>
+                        <td>17
+                        </td>
+                        <td>18
+                        </td>
+                        <td>19
+                        </td>
+                        <td>20
+                        </td>
+                        <td>21
+                        </td>
+                        <td>22
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>23
+                        </td>
+                        <td>24
+                        </td>
+                        <td>25
+                        </td>
+                        <td>26
+                        </td>
+                        <td>27
+                        </td>
+                        <td>28
+                        </td>
+                        <td>29
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>30
+                        </td>
+                        <td>31
+                        </td>
+                        <td class="pad" colspan="5">&nbsp;
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+  </section>
+</div>
+</main>
+<?php
+include 'data-admin/php/footer.php';
+include 'js.php';
+?>
+<!-- Mirrored from demo.designwall.com/dw-gamez/?page_id=308 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Jul 2018 04:42:19 GMT -->
+</html>

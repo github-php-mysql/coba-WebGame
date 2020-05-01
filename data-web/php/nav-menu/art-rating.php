@@ -1,0 +1,107 @@
+<div id="primary">
+  <div id="primary-inner">
+    <div id="sidebar-content-top">
+      <aside id="text-4" class="widget widget_text">			
+        <div class="textwidget">
+          <a href="http://bit.ly/tf-wallclassic">
+            <img src="data-web/images/ad-2.jpg" alt="" />
+          </a>
+        </div>
+      </aside>
+    </div>
+    <div id="main-content">
+      <div class="main-content-header">
+        <h2 class="main-content-title">Rating
+          <span>
+            Games
+          </span>
+        </h2>
+        <div class="main-content-actions">
+        </div>
+      </div>
+      <div class="layout-narrow">
+	  
+        <?php
+			$qry = mysqli_query($conn, "SELECT * FROM games ORDER BY games.id DESC");
+			while ($data = mysqli_fetch_array($qry)) {
+		?>									
+        <article id="post-107" class="post-107 post type-post status-publish format-standard has-post-thumbnail hentry category-reviews tag-fighting tag-sports tag-super-mario 
+		col-lg-4 col-md-12 col-xs-6">
+          <div class="entry-thumbnail">
+            <a href="index5a24.html?p=107" rel="bookmark">
+              <img width="210" height="210" src="data-web/images/mario-luigi-dream-team-210x210.jpg" class="attachment-homepage-narrow size-homepage-narrow wp-post-image" alt=""/>
+            </a>
+          </div>
+          <header class="entry-header">
+            <h2 class="entry-title">
+             <a href="artikel.php?id=<?php echo $data['id']; ?>" rel="bookmark">
+                <?php echo $data['judul']; ?>
+              </a>
+              <div>
+                <i class="rating-star fa fa-star ">
+                </i>
+                <i class="rating-star fa fa-star ">
+                </i>
+                <i class="rating-star fa fa-star-o">
+                </i>
+                <i class="rating-star fa fa-star-o ">
+                </i>
+                <i class="rating-star fa fa-star-o ">
+                </i>			
+              </div>
+            </h2>
+            <div class="entry-meta meta-top hidden-xs hidden-sm">
+              <span class="posted-on">
+                <i class="fa fa-clock-o">
+                </i> 
+                <a href="index5a24.html?p=107" title="12:00 am" rel="bookmark">
+                  <time class="entry-date"><?php echo $data['tgl_post']; ?>
+                  </time>
+                </a>
+              </span>
+              <span class="byline">
+                <i class="fa fa-user">
+                </i> 
+                <span class="author vcard">
+                  <a class="url fn n" href="indexcd64.html?author=1" title="View all posts by admin">admin
+                  </a>
+                </span>
+              </span>
+              <span class="cat-links">
+                <i class="fa fa-folder-open">
+                </i> 
+                <a href="review.html?cat=3" rel="category">Reviews
+                </a>		
+              </span>
+            </div>
+          </header>
+        </article>
+        <?php
+			}
+			?>
+        <nav class="navigation pagination" role="navigation">
+          <h2 class="screen-reader-text">Posts navigation
+          </h2>
+          <div class="nav-links">
+            <span class='page-numbers current'>1
+            </span>
+            <a class='page-numbers' href='index6146.html?paged=2'>2
+            </a>
+            <a class='page-numbers' href='index8a68.html?paged=3'>3
+            </a>
+            <a class='page-numbers' href='indexe377.html?paged=4'>4
+            </a>
+            <a class='page-numbers' href='index880d.html?paged=5'>5
+            </a>
+            <span class="page-numbers dots">&hellip;
+            </span>
+            <a class='page-numbers' href='indexe43e.html?paged=10'>10
+            </a>
+            <a class="next page-numbers" href="index6146.html?paged=2">
+              <i class="fa fa-angle-right">
+              </i>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </div>
